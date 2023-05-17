@@ -3,13 +3,13 @@ const Navbar = () => {
     const user = true;
     const navLinks =
         <>
-         <li><a>Home</a></li>
+            <li><a>Home</a></li>
             <li><a>Blogs</a></li>
             {user && <>
-            <li><a>All toys</a></li>
-            <li><a>My toys</a></li>
-            <li><a>Add a toy</a></li>
-            </>} 
+                <li><a>All toys</a></li>
+                <li><a>My toys</a></li>
+                <li><a>Add a toy</a></li>
+            </>}
         </>
 
     return (
@@ -21,7 +21,7 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content bg-black mt-3 p-2 font-bold shadow  rounded-box w-52 uppercase text-sm">
-                           {navLinks}
+                            {navLinks}
                         </ul>
                     </div>
                     <div className="flex items-center">
@@ -33,11 +33,11 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden  lg:flex">
                     <ul className="menu menu-horizontal  px-1 font-bold uppercase text-sm">
-                       {navLinks}
+                        {navLinks}
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <img src="https://img.freepik.com/free-icon/user_318-159711.jpg?w=2000"  title="username" className="w-12 h-12 mr-3" alt="" />
+                    <img src="https://img.freepik.com/free-icon/user_318-159711.jpg?w=2000" title="username" className="w-12 h-12 mr-3" alt="" />
                     <button className="bg-white text-gray-800 font-bold px-5 py-2 rounded-lg">Log In</button>
                 </div>
             </div>
