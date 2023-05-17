@@ -4,11 +4,12 @@ import {Outlet} from "react-router-dom"
 
 const Layout = () => {
     return (
-        <div className="md:max-w-5xl mx-auto">
-            <Navbar />
-            <Outlet/>
-            <Footer/>
-        </div>
+        <>
+        <Navbar />
+        <Outlet/>
+        <Footer/>        
+        </>
+    
     );
 };
 
