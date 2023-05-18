@@ -4,12 +4,12 @@ const Navbar = () => {
     const user = true;
     const navLinks =
         <>
-            <li><a>Home</a></li>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="blog">Blogs</Link></li>
             {user && <>
                 <li><Link to="mytoys">My toys</Link></li>
                 <li><Link to="alltoys">All toys</Link></li>
-                <li><a>Add a toy</a></li>
+                <li><Link to="addtoy">Add A toy</Link></li>
             </>}
         </>
 
