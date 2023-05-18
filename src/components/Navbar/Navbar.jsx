@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import Logo from "../../assets/ball.png"
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
+import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider";
 const Navbar = () => {
-    const user = true;
+    const navigate = useNavigate()
+    const {user, logOut} = useContext(FirebaseAuthContext)
     const navLinks =
         <>
             <li><Link to="/">Home</Link></li>
@@ -12,7 +15,12 @@ const Navbar = () => {
                 <li><Link to="addtoy">Add A toy</Link></li>
             </>}
         </>
-
+  
+  const handleLogOut = () => {
+    logOut()
+    .then(navigate('/login'))
+    .catch(error => console.log(error.message))
+  }
     return (
         <div className="bg-purple-500 py-2 sticky top-0 z-50">
             <div className="navbar  md:max-w-6xl mx-auto  text-white">
@@ -38,8 +46,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <img src="https://img.freepik.com/free-icon/user_318-159711.jpg?w=2000" title="username" className="w-12 h-12 mr-3" alt="" />
-                   <Link to='login'> <button className="bg-white text-gray-800 font-bold px-5 py-2 rounded-lg">Log In</button></Link>
+                    <img src={user ? user.photoURL : "https://img.freepik.com/free-icon/user_318-159711.jpg?w=2000"} title={user ? user.displayName : "Login to see "} className="w-12 h-12  cursor-pointer rounded-full mr-3" alt="" />
+                    {user ? <button onClick={handleLogOut} className="bg-white text-gray-800 font-bold px-5 py-2 rounded-lg">Log Out</button> : 
+                   <Link to='login'> <button className="bg-white text-gray-800 font-bold px-5 py-2 rounded-lg">{user ? "Log Out" : "Log In"}</button></Link>
+                }
                 </div>
             </div>
         </div>
