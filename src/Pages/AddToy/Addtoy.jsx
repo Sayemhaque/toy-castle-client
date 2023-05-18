@@ -1,17 +1,22 @@
-
+import { addToy } from "../../utils/Utils";
+import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider"
+import { useContext } from "react";
 const Addtoy = () => {
-
+    const {user} = useContext(FirebaseAuthContext)
     const handleRegister = (event) => {
         event.preventDefault()
         const form = event.target;
         const photoUrl = form.photoUrl.value;
         const toyName = form.toyName.value;
         const seller = form.seller.value;
+        const sellerEmail = form.sellerEmail.value;
         const rating = form.rating.value;
+        const price = form.price.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
         const subCategory = form.subCategory.value
-        console.log({ photoUrl, toyName, seller, rating, quantity, description, subCategory })
+        const data = { photoUrl, toyName, seller, sellerEmail, rating, price, quantity, description, subCategory }
+        addToy(data)
         form.reset()
     }
     return (
@@ -46,13 +51,25 @@ const Addtoy = () => {
                             <label className="label">
                                 <span className="label-text">Seller</span>
                             </label>
-                            <input required type="text" placeholder="seller name" name="seller" className="input input-bordered" />
+                            <input required type="text" defaultValue={user?.displayName} placeholder="seller name" name="seller" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input required type="text" defaultValue={user?.email} placeholder="seller email" name="sellerEmail" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
                             <input required type="text" placeholder="rating" name="rating" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Price</span>
+                            </label>
+                            <input required type="text" placeholder="toy name" name="price" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
