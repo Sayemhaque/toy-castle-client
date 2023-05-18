@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider";
 
 const Register = () => {
+    const [error , setError] = useState("")
     const navigate = useNavigate()
-    const {createUserFirebase,updateProfileFirbase} = useContext(FirebaseAuthContext)
+    const {createUserFirebase,updateProfileFirbase,logOut} = useContext(FirebaseAuthContext)
     const handleAddToy = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -16,11 +17,15 @@ const Register = () => {
         createUserFirebase(email,password)
         .then(() => {
             updateProfileFirbase(name,photoUrl)
-            .then(navigate('/login'))
-            .catch(error => console.log(error))
+            .then(() => {
+                logOut()
+                .then(navigate('/login'))
+                .catch(error => setError(error.message))
+            })
+            .catch(error => setError(error.message))
         })
-        .catch(error => console.log(error))
-        form.reset()
+        .catch(error => setError(error.message))
+       
     }
     return (
         <div>
@@ -53,6 +58,7 @@ const Register = () => {
                                 </label>
                                 <input required type="text" placeholder="photoUrl" name="photoUrl" className="input input-bordered" />
                             </div>
+                            <p className="text-red-500">{error}</p>
                             <p>Alredy have an account ? <Link to="/login">Login</Link></p>
                         </div>
                         <div className="form-control mt-6">

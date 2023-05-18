@@ -1,10 +1,11 @@
 import { Link,useNavigate } from "react-router-dom";
 import {FaGoogle} from "react-icons/fa"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider";
 
 const Login = () => {
     const navigate = useNavigate()
+    const [error , setError] = useState("")
     const  {logInWithGoogle,logInFirebase} = useContext(FirebaseAuthContext)
     const handleLogIn = (event) => {
         event.preventDefault()
@@ -12,9 +13,11 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         logInFirebase(email,password)
-        .then(navigate("/"))
-        .catch(error => console.log(error.message))
-        form.reset()
+        .then(() => {
+            navigate("/")
+        })
+        .catch(error => setError(error.message))
+       
     }
 
     const handleLogInWithGoogle = () => {
@@ -44,11 +47,13 @@ const Login = () => {
                                 </label>
                                 <input required type="password" placeholder="password" name="password" className="input input-bordered" />
                             </div>
+                            <p className="text-red-500">{error}</p>
                             <p>Do not have an account ? <Link to="/register">Register</Link></p>
                         </div>
                         <div className="form-control mt-6">
                             <button className="bg-purple-600 w-full py-3 rounded-lg text-white font-bold">Log In</button>
                         </div>
+                        
                         </form>
                         <span className="py-3 text-center">Or login with</span>
                         <button onClick={handleLogInWithGoogle} className="flex bg-black text-white py-3 rounded-lg btn-block justify-center gap-6 items-center"><FaGoogle/> Login with Google</button>
