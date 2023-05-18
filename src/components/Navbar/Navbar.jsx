@@ -39,7 +39,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     <img src="https://img.freepik.com/free-icon/user_318-159711.jpg?w=2000" title="username" className="w-12 h-12 mr-3" alt="" />
-                    <button className="bg-white text-gray-800 font-bold px-5 py-2 rounded-lg">Log In</button>
+                   <Link to='login'> <button className="bg-white text-gray-800 font-bold px-5 py-2 rounded-lg">Log In</button></Link>
                 </div>
             </div>
         </div>
