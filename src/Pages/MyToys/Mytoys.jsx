@@ -1,8 +1,8 @@
-import Table from "../Table/Table";
+import AllToysTable from "../Table/AllToysTable";
 
 const Mytoys = () => {
     return (
-      <Table/>
+      <AllToysTable/>
     );
 };
 
