@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext } from "react";
-import {GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile} from "firebase/auth"
+import {GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from "firebase/auth"
 import {useState,useEffect} from "react"
 import app from "../Firebase/Firebase.config";
 
@@ -18,7 +18,7 @@ const FirebaseAuthProvider = ({children}) => {
         setLoading(true)
         return signInWithPopup(auth,provider)
     }
-    
+    //create a new user
     const createUserFirebase = (email,password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
@@ -27,6 +27,15 @@ const FirebaseAuthProvider = ({children}) => {
    //updating a user profile
     const updateProfileFirbase = (name,photoUrl) => {
         return updateProfile(auth.currentUser , {displayName:name,photoURL:photoUrl})
+    }
+
+    // login a user 
+    const logInFirebase = (email,password) => {
+       return signInWithEmailAndPassword(auth,email,password)
+    }
+    // log out a user
+    const logOut = () => {
+        return signOut(auth)
     }
    // observeing the user state
     useEffect(() => {
@@ -44,6 +53,8 @@ const FirebaseAuthProvider = ({children}) => {
     const authenticationInfo = {
         user,
         loading,
+        logOut,
+        logInFirebase,
         logInWithGoogle,
         createUserFirebase,
         updateProfileFirbase

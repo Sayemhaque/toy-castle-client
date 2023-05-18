@@ -1,16 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import {FaGoogle} from "react-icons/fa"
 import { useContext } from "react";
 import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider";
 
 const Login = () => {
-    const  {logInWithGoogle} = useContext(FirebaseAuthContext)
+    const navigate = useNavigate()
+    const  {logInWithGoogle,logInFirebase} = useContext(FirebaseAuthContext)
     const handleLogIn = (event) => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log({ email, password })
+        logInFirebase(email,password)
+        .then(navigate("/"))
+        .catch(error => console.log(error.message))
         form.reset()
     }
 
