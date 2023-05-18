@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link,useNavigate } from "react-router-dom";
+import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider";
 
 const Register = () => {
+    const navigate = useNavigate()
+    const {createUserFirebase,updateProfileFirbase} = useContext(FirebaseAuthContext)
     const handleAddToy = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -9,6 +13,13 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log({ photoUrl, name, email, password })
+        createUserFirebase(email,password)
+        .then(() => {
+            updateProfileFirbase(name,photoUrl)
+            .then(navigate('/login'))
+            .catch(error => console.log(error))
+        })
+        .catch(error => console.log(error))
         form.reset()
     }
     return (
