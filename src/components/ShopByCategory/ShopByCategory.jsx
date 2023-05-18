@@ -1,4 +1,5 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import {Link} from "react-router-dom"
 import 'react-tabs/style/react-tabs.css';
 const ShopByCategory = () => {
     return (
@@ -19,7 +20,7 @@ const ShopByCategory = () => {
                                     <p className='text-start'>Price : $100</p>
                                     <p className='text-start'>Ratings:3.4</p>
                                     <div className="card-actions justify-start">
-                                        <button className="btn btn-primary">view details</button>
+                                       <Link to="/toydetails"> <button className="btn btn-primary">view details</button></Link>
                                     </div>
                                 </div>
                             </div>

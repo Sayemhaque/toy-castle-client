@@ -1,13 +1,14 @@
 import Logo from "../../assets/ball.png"
+import {Link} from "react-router-dom"
 const Navbar = () => {
     const user = true;
     const navLinks =
         <>
             <li><a>Home</a></li>
-            <li><a>Blogs</a></li>
+            <li><Link to="blog">Blogs</Link></li>
             {user && <>
-                <li><a>All toys</a></li>
-                <li><a>My toys</a></li>
+                <li><Link to="mytoys">My toys</Link></li>
+                <li><Link to="alltoys">All toys</Link></li>
                 <li><a>Add a toy</a></li>
             </>}
         </>
