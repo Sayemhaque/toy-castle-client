@@ -9,12 +9,10 @@ const Navbar = () => {
         <>
             <li><Link to="/">Home</Link></li>
             <li><Link to="blog">Blogs</Link></li>
-            {user && <>
                 <li><Link to="mytoys">My toys</Link></li>
                 <li><Link to="alltoys">All toys</Link></li>
                 <li><Link to="addtoy">Add A toy</Link></li>
-            </>}
-        </>
+            </>
   
   const handleLogOut = () => {
     logOut()

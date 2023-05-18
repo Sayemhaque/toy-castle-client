@@ -1,4 +1,4 @@
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useNavigate,useLocation } from "react-router-dom";
 import {FaGoogle} from "react-icons/fa"
 import { useContext, useState } from "react";
 import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider";
@@ -6,6 +6,8 @@ import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider";
 const Login = () => {
     const navigate = useNavigate()
     const [error , setError] = useState("")
+    const location = useLocation()
+    const from = location?.state?.from?.pathname
     const  {logInWithGoogle,logInFirebase} = useContext(FirebaseAuthContext)
     const handleLogIn = (event) => {
         event.preventDefault()
@@ -14,7 +16,7 @@ const Login = () => {
         const password = form.password.value;
         logInFirebase(email,password)
         .then(() => {
-            navigate("/")
+            navigate(from || "/")
         })
         .catch(error => setError(error.message))
        
