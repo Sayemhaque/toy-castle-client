@@ -1,3 +1,4 @@
+import BanneImage from "../../assets/istockphoto-183327961-170667a-removebg-preview.png"
 const Banner = () => {
     return (
         <div className=" bg-slate-300">
@@ -14,7 +15,7 @@ const Banner = () => {
                </div>
             </div>
             <div className="md:w-1/2">
-                <img className="h-[500px] object-contain rounded-md" src='https://media.istockphoto.com/id/183327961/photo/baby-smiling-and-looking-up-while-playing-with-a-ball.jpg?b=1&s=170667a&w=0&k=20&c=lkO17CnpJkIJNbCoZu_rz7GWT0XumrDmUsAZiL_hRAg=' alt="" />
+                <img className="h-[500px] object-contain rounded-md" src={BanneImage} alt="" />
             </div>
         </div>
             </div>
