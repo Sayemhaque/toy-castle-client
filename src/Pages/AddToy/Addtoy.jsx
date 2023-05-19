@@ -28,7 +28,7 @@ const Addtoy = () => {
     
 const addToy = async (toydata) => {
     try {
-       const res = await fetch("http://localhost:5000/toys", {
+       const res = await fetch("https://toy-castle.vercel.app/toys", {
           method: "POST",
           headers: { "content-Type": "application/json" },
           body: JSON.stringify(toydata)
@@ -107,7 +107,7 @@ const addToy = async (toydata) => {
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input required type="text" placeholder="toy name" name="price" className="input input-bordered" />
+                            <input required type="text" placeholder="$price" name="price" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
