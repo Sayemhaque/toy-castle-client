@@ -1,16 +1,22 @@
 import AllToysTable from "../Table/AllToysTable";
-import { useLoaderData } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   //adding dynamic title
   useTitle("All Toys")
-  const allToys = useLoaderData()
-  const [toys, setToys] = useState(allToys)
+  const [toys, setToys] = useState([])
   const [searchText, setSearchText] = useState(null)
 
+  useEffect(() => {
+    const getData = async () =>{
+      const res = await fetch("https://toy-castle.vercel.app/alltoys")
+      const data = await res.json()
+      setToys(data)
 
+    }
+    getData()
+  } ,[])
   const handleSearch = async () => {
     const res = await fetch(`https://toy-castle.vercel.app/search/${searchText}`)
     const data = await res.json()

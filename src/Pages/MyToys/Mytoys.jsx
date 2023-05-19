@@ -19,7 +19,7 @@ const Mytoys = () => {
 
      const handleSorting = async (price) => {
       console.log(price)
-          const res = await fetch(`https://toy-castle.vercel.app/${price}`)
+          const res = await fetch(`https://toy-castle.vercel.app/${price}/${user?.email}`)
           const data = await res.json();
           setToys(data)
      }

@@ -21,7 +21,7 @@ const Gallery = () => {
                 {photos.length === 0 ? <p className="font-serif font-bold text-md md:text-4xl">Loading....</p> : <>
                     {photos.map((photo) => {
                         return <>
-                            <div className="overflow-hidden">
+                            <div key={photo._id} className="overflow-hidden">
                                 <img data-aos="fade-right" className="border-8 border-purple-600 transition-transform duration-500 ease-in-out hover:scale-125" src={photo.imgurl} alt="" />
                             </div>
                         </>

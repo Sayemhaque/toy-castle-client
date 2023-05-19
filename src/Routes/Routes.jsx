@@ -32,7 +32,6 @@ const router = createBrowserRouter([
         { 
           path:"alltoys",
           element:<PrivateRoute><AllToys/> </PrivateRoute>,
-          loader: () => fetch("https://toy-castle.vercel.app/toys")
         },
         { 
           path:"addtoy",
