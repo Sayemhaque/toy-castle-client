@@ -32,8 +32,8 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="flex items-center">
-                        <img className="w-12 h-12" src={Logo} alt="" />
-                        <a className="btn btn-ghost normal-case font-serif font-bold text-3xl">
+                        <img className="w-12 h-12 hidden md:block" src={Logo} alt="" />
+                        <a className="btn btn-ghost normal-case font-serif font-bold text-xl md:text-3xl">
                             Toy Castle
                         </a>
                     </div>
@@ -43,10 +43,10 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end ">
                     <img src={user ? user.photoURL : "https://img.freepik.com/free-icon/user_318-159711.jpg?w=2000"} title={user ? user.displayName : "Login to see "} className="w-12 h-12  cursor-pointer rounded-full mr-3" alt="" />
-                    {user ? <button onClick={handleLogOut} className="bg-white text-gray-800 font-bold px-5 py-2 rounded-lg">Log Out</button> : 
-                   <Link to='login'> <button className="bg-white text-gray-800 font-bold px-5 py-2 rounded-lg">{user ? "Log Out" : "Log In"}</button></Link>
+                    {user ? <button  onClick={handleLogOut} className="bg-white text-gray-800 font-bold px-2 md:px-5 py-1  md:py-2 rounded-lg">Log Out</button> : 
+                   <Link to='login'> <button className="bg-white text-gray-800 font-bold px-2 md:px-5 py-1  md:py-2 rounded-lg">{user ? "Log Out" : "Log In"}</button></Link>
                 }
                 </div>
             </div>

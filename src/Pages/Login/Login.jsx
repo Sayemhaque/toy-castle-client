@@ -37,7 +37,7 @@ const Login = () => {
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="flex-col lg:flex-row">
-                    <div  className="card w-full md:min-w-[600px] bg-base-100 p-12 shadow-xl">
+                    <div  className="card w-full md:min-w-[600px] bg-base-100 px-3 md:p-12 shadow-xl py-5">
                         <h3 className="text-black text-center font-bold text-2xl font-serif">Log In</h3>
                         <form onSubmit={handleLogIn}>
                         <div className="card-body grid grid-cols-1 ">
@@ -45,7 +45,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input required type="email" placeholder="email" name="email" className="input input-bordered" />
+                                <input required type="email" placeholder="email" name="email" className="input input-bordered w-full" />
                             </div>
                             <div className="form-control">
                                 <label className="label">

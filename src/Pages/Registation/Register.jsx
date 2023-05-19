@@ -34,7 +34,7 @@ const Register = () => {
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="flex-col lg:flex-row">
-                    <form onSubmit={handleAddToy} className="card w-full md:min-w-[600px] bg-base-100 p-12 shadow-xl">
+                    <form onSubmit={handleAddToy} className="w-full md:w-[600px] bg-base-100 px-5 py-5 md:p-12 md:shadow-xl">
                         <h3 className="text-black text-center font-bold text-2xl font-serif">Register</h3>
                         <div className="card-body grid grid-cols-1 ">
                             <div className="form-control">

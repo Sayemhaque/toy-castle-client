@@ -16,9 +16,9 @@ const Gallery = () => {
     console.log(photos)
     return (
         <div className="py-12 px-5">
-            <h2 className="font-bold text-center text-5xl font-serif">Gallery</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-5 py-5">
-                {photos.length === 0 ? <p className="text-center font-serif font-bold text-4xl">Loading....</p> : <>
+            <h2 className="font-bold text-center text-2xl md:text-5xl font-serif">Gallery</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-5 py-5 place-items-center">
+                {photos.length === 0 ? <p className="font-serif font-bold text-md md:text-4xl">Loading....</p> : <>
                     {photos.map((photo) => {
                         return <>
                             <div className="overflow-hidden">

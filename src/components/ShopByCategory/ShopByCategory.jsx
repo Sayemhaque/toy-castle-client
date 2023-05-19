@@ -26,7 +26,7 @@ const ShopByCategory = () => {
 
     return (
         <div className=' py-12 bg-base-200'>
-            <h1 className='font-bold text-4xl text-center font-serif pb-8'>Shop by category</h1>
+            <h1 className='font-bold text-2xl md:text-4xl text-center font-serif pb-8'>Shop by category</h1>
             <div className='md:max-w-6xl mx-auto text-center'>
                 <Tabs >
                     <TabList>
