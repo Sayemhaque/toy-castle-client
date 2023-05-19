@@ -7,7 +7,7 @@ const Gallery = () => {
     useEffect(() => {
         AOS.init({ duration: 1000 })
         const getPhosts = async () => {
-            const res = await fetch("http://localhost:5000/gallery");
+            const res = await fetch("https://toy-castle.vercel.app/gallery");
             const data = await res.json()
             setPhotos(data)
         }

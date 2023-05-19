@@ -12,7 +12,7 @@ const AllToys = () => {
 
 
   const handleSearch = async () => {
-    const res = await fetch(`http://localhost:5000/search/${searchText}`)
+    const res = await fetch(`https://toy-castle.vercel.app/search/${searchText}`)
     const data = await res.json()
     setToys(data)
   }

@@ -5,7 +5,7 @@ const ExclusiveToys = () => {
 
   useEffect(() => {
       const getPhosts = async () => {
-          const res = await fetch("http://localhost:5000/exclusive");
+          const res = await fetch("https://toy-castle.vercel.app/exclusive");
           const data = await res.json()
           setPhotos(data)
       }

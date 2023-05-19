@@ -10,15 +10,16 @@ const Mytoys = () => {
   const [toys,setToys] = useState([])
     useEffect(() => {
       const getData = async () => {
-        const res = await fetch(`http://localhost:5000/mytoys/${user?.email}`);
+        const res = await fetch(`https://toy-castle.vercel.app/mytoys/${user?.email}`);
         const data = await res.json()
         setToys(data)
       }
       getData()
     },[user.email])
 
-     const handlesorting = async (price) => {
-          const res = await fetch(`http://localhost:5000/${price}`)
+     const handleSorting = async (price) => {
+      console.log(price)
+          const res = await fetch(`https://toy-castle.vercel.app/${price}`)
           const data = await res.json();
           setToys(data)
      }
@@ -26,9 +27,10 @@ const Mytoys = () => {
       <div>
         
         <div className="overflow-x-auto w-full py-12 px-5">
-        <div className="flex gap-5 mb-2">
-          <button onClick={() => handlesorting("lowest")} className="px-2 py-1 bg-purple-500 text-white font-bold">Lowest</button>
-          <button className="px-2 py-1 bg-purple-500 text-white font-bold">Highest</button>
+        <div className="flex items-center gap-5 mb-2">
+          <p className="font-bold text-md">Filter by price:</p>
+          <button onClick={() => handleSorting("lowest")} className="px-2 py-1 bg-purple-500 text-white font-bold">Lowest</button>
+          <button onClick={() => handleSorting("highest")} className="px-2 py-1 bg-purple-500 text-white font-bold">Highest</button>
         </div>
         <table className="table w-full">
           {/* head */}

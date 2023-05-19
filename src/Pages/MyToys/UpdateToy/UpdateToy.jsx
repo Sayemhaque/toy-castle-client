@@ -26,7 +26,7 @@ const UpdateToy = () => {
 
     const updateToy = async (info) => {
         try {
-           const res = await fetch(`http://localhost:5000/toy/update/${_id}`, {
+           const res = await fetch(`https://toy-castle.vercel.app/update/${_id}`, {
               method: "PUT",
               headers: { "content-Type": "application/json" },
               body: JSON.stringify(info)
