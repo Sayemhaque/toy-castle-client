@@ -1,6 +1,8 @@
-import { addToy } from "../../utils/Utils";
 import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider"
 import { useContext } from "react";
+import {  toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import Toasts from "../../components/Toast/Toasts";
 const Addtoy = () => {
     const {user} = useContext(FirebaseAuthContext)
     const handleRegister = (event) => {
@@ -15,10 +17,43 @@ const Addtoy = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
         const subCategory = form.subCategory.value
-        const data = { photoUrl, toyName, seller, sellerEmail, rating, price, quantity, description, subCategory }
-        addToy(data)
+        const toydata = { photoUrl, toyName, seller, sellerEmail, rating, price, quantity, description, subCategory }
+        addToy(toydata)
         form.reset()
     }
+
+    
+const addToy = async (toydata) => {
+    try {
+       const res = await fetch("http://localhost:5000/toys", {
+          method: "POST",
+          headers: { "content-Type": "application/json" },
+          body: JSON.stringify(toydata)
+       })
+       const data = await res.json()
+       console.log(data)
+       if(data.insertedId){
+        notify()
+       }
+    } catch (error) {
+       console.log(error)
+    }
+ }
+ 
+ 
+ 
+   const  notify = () => {
+    toast.success('Toy Added successfully', {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+   };
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -84,8 +119,11 @@ const Addtoy = () => {
                             <input required type="text" placeholder="description" name="description" className="input input-bordered" />
                         </div>
                     </div>
+                    <div>
+                  </div>
                     <div className="form-control mt-6">
                         <button className="bg-purple-600 w-full py-3 rounded-lg text-white font-bold">Add</button>
+                        <Toasts />
                     </div>
                 </form>
             </div>

@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import {Link} from 'react-router-dom'
+import {  toast } from 'react-toastify';
+import Toasts from '../../components/Toast/Toasts';
 
 const MyToysTable = ({toy}) => {
     const {_id,sellerEmail,toyName,subCategory,price,quantity} = toy;
@@ -9,9 +11,26 @@ const MyToysTable = ({toy}) => {
           const res = await fetch(`http://localhost:5000/toy/delete/${id}`,{
           method:"DELETE",
        })
-       console.log(res)
+       const data = await res.json()
+       console.log(data)
+       if(data.deletedCount > 0){
+        notify()
+       }
       }
    }
+   const  notify = () => {
+    toast.success('Toy deleted successfully', {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+   };
+
     return (
        <>
         <tr>
@@ -23,7 +42,10 @@ const MyToysTable = ({toy}) => {
         <th>
           <div className="flex flex-col gap-4">
           <Link to={`/update/${_id}`}>  <button className="px-2 border bg-border font-bold" htmlFor="my-modal-5">Edit</button></Link>
-            <button onClick={() => handleDelete(_id)} className="px-2 bg-black text-white font-bold">Delete</button>
+          <div>
+          <button onClick={() => handleDelete(_id)} className="px-2 bg-black text-white font-bold">Delete</button>
+          <Toasts/>
+          </div>
           </div>
         </th>
       </tr>

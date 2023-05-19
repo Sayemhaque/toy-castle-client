@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-
+import {  toast } from 'react-toastify';
 import {useLoaderData} from "react-router-dom"
-import { updateToy } from "../../../utils/Utils";
+import Toasts from '../../../components/Toast/Toasts';
 const UpdateToy = () => {
     const toy = useLoaderData()
     const {_id,photoUrl,toyName,price,rating,quantity,description} = toy;
-    const handleUpate = (event) => {
+    const handleUpate = (event,) => {
         event.preventDefault()
         const form = event.target;
         const photoUrl = form.photoUrl.value;
@@ -15,11 +15,41 @@ const UpdateToy = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
         const data = { photoUrl, toyName,rating, price, quantity, description,}
-        updateToy(data,_id)
+        updateToy(data)
         form.reset()
         console.log(data)
     }
+    
 
+    const updateToy = async (info) => {
+        try {
+           const res = await fetch(`http://localhost:5000/toy/update/${_id}`, {
+              method: "PUT",
+              headers: { "content-Type": "application/json" },
+              body: JSON.stringify(info)
+           })
+           const data = await res.json()
+           console.log(data)
+           if(data.modifiedCount > 0){
+            notify()
+           }
+        } catch (error) {
+           console.log(error)
+        }
+     }
+     
+    const  notify = () => {
+        toast.success('Toy updated successfully', {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+       };
     
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -66,6 +96,7 @@ const UpdateToy = () => {
                     </div>
                     <div className="form-control mt-6">
                         <button className="bg-purple-600 w-full py-3 rounded-lg text-white font-bold">Update</button>
+                        <Toasts/>
                     </div>
                 </form>
             </div>
