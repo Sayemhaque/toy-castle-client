@@ -8,10 +8,8 @@ import FirebaseAuthProvider from './Provider/FirebaseAuthProvider'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <FirebaseAuthProvider>
-   <RouterProvider router={router} />
-   </FirebaseAuthProvider>
-    
- 
+    <FirebaseAuthProvider>
+      <RouterProvider router={router} />
+    </FirebaseAuthProvider>
   </React.StrictMode>,
 )

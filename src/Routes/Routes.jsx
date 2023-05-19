@@ -10,12 +10,13 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Registation/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UpdateToy from "../Pages/MyToys/UpdateToy/UpdateToy";
+import PageNotFound from "../Pages/404 page/PageNotFound";
 
 const router = createBrowserRouter([
   {
     path:"/",
     element:<Layout/>,
-    errorElement:<p>Error page</p>,
+    errorElement:<PageNotFound/>,
     children:[
         { 
           path:"/",
