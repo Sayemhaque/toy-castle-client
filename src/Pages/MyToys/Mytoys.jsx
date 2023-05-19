@@ -16,8 +16,20 @@ const Mytoys = () => {
       }
       getData()
     },[user.email])
+
+     const handlesorting = async (price) => {
+          const res = await fetch(`http://localhost:5000/${price}`)
+          const data = await res.json();
+          setToys(data)
+     }
     return (
-      <div className="overflow-x-auto w-full py-12 px-5">
+      <div>
+        
+        <div className="overflow-x-auto w-full py-12 px-5">
+        <div className="flex gap-5 mb-2">
+          <button onClick={() => handlesorting("lowest")} className="px-2 py-1 bg-purple-500 text-white font-bold">Lowest</button>
+          <button className="px-2 py-1 bg-purple-500 text-white font-bold">Highest</button>
+        </div>
         <table className="table w-full">
           {/* head */}
           <thead>
@@ -34,6 +46,7 @@ const Mytoys = () => {
             {toys.map(toy => <MyToysTable key={toy._id} toy={toy} />)}
           </tbody>
         </table>
+      </div>
       </div>
     );
 };
