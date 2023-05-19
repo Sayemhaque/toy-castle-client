@@ -11,14 +11,15 @@ const ShopByCategory = () => {
 
     useEffect(() => {
         const getToys = async () => {
-            const res = await fetch(`http://localhost:5000/toys/${tabname}`)
+            const res = await fetch(`http://localhost:5000/toys/category/${tabname}`)
             const data = await res.json()
             setToys(data)
             console.log(tabname)
         }
         getToys()
     }, [tabname])
-
+     
+    console.log(toys)
     const handeTabName = (name) => {
         setTabName(name)
     }

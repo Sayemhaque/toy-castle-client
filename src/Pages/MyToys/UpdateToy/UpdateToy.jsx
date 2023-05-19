@@ -4,24 +4,23 @@ import {useLoaderData} from "react-router-dom"
 import { updateToy } from "../../../utils/Utils";
 const UpdateToy = () => {
     const toy = useLoaderData()
-    const {_id,photoUrl,seller,sellerEmail,toyName,price,rating,quantity,description} = toy;
+    const {_id,photoUrl,toyName,price,rating,quantity,description} = toy;
     const handleUpate = (event) => {
         event.preventDefault()
         const form = event.target;
         const photoUrl = form.photoUrl.value;
         const toyName = form.toyName.value;
-        const seller = form.seller.value;
-        const sellerEmail = form.sellerEmail.value;
         const rating = form.rating.value;
         const price = form.price.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
-        const subCategory = form.subCategory.value
-        const data = { photoUrl, toyName, seller, sellerEmail, rating, price, quantity, description, subCategory }
+        const data = { photoUrl, toyName,rating, price, quantity, description,}
         updateToy(data,_id)
         form.reset()
         console.log(data)
     }
+
+    
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -39,28 +38,6 @@ const UpdateToy = () => {
                                 <span className="label-text">Toy Name</span>
                             </label>
                             <input required type="text" defaultValue={toyName} placeholder="toy name" name="toyName" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">seller</span>
-                            </label>
-                            <input required type="text" defaultValue={seller} placeholder="toy name" name="seller" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">seller Email</span>
-                            </label>
-                            <input required type="text" defaultValue={sellerEmail} placeholder="toy name" name="sellerEmail" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Choose a sub-category:</span>
-                            </label>
-                            <select id="subCategory" className="input input-bordered">
-                                <option value="Iidoor">Indoor</option>
-                                <option value="outdoor">Outdoor</option>
-                                <option value="water">Water</option>
-                            </select>
                         </div>
                         <div className="form-control">
                             <label className="label">

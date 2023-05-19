@@ -8,10 +8,17 @@ const PrivateRoute = ({ children }) => {
     if (loading) {
         return <p className="text-center text-lg font-bold py-12">Loading...</p>
     }
-    if (user) {
-        return children
-    }
-    return <Navigate to="/login" state={{ from: location }} replace={true}></Navigate>
-};
+   
+    if (!user) {
+        return (
+          <>
+            <p className="text-center font-bold text-5xl">Please login to see details</p>
+            <Navigate to="/login" state={{ from: location }} replace />
+          </>
+        );
+      }
+    
+      return children;
+    };
 
 export default PrivateRoute;

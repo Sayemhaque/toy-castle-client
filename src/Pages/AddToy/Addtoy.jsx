@@ -42,9 +42,9 @@ const Addtoy = () => {
                                 <span className="label-text">Choose a sub-category:</span>
                             </label>
                             <select id="subCategory" className="input input-bordered">
-                                <option value="Indoor">Indoor</option>
-                                <option value="Outdoor">Outdoor</option>
-                                <option value="Water">Water</option>
+                                <option value="indoor">Indoor</option>
+                                <option value="outdoor">Outdoor</option>
+                                <option value="water">Water</option>
                             </select>
                         </div>
                         <div className="form-control">

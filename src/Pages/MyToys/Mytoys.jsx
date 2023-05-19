@@ -7,7 +7,7 @@ const Mytoys = () => {
   const [toys,setToys] = useState([])
     useEffect(() => {
       const getData = async () => {
-        const res = await fetch(`http://localhost:5000/toys?email=${user.email}`);
+        const res = await fetch(`http://localhost:5000/mytoys/${user?.email}`);
         const data = await res.json()
         setToys(data)
       }
