@@ -2,7 +2,10 @@
 import {  toast } from 'react-toastify';
 import {useLoaderData} from "react-router-dom"
 import Toasts from '../../../components/Toast/Toasts';
+import useTitle from '../../../hooks/useTitle';
 const UpdateToy = () => {
+     //adding dynamic title
+  useTitle("update Toys")
     const toy = useLoaderData()
     const {_id,photoUrl,toyName,price,rating,quantity,description} = toy;
     const handleUpate = (event,) => {

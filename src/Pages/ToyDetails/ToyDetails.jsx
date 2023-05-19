@@ -1,5 +1,8 @@
 import { useLoaderData } from "react-router-dom"
+import useTitle from "../../hooks/useTitle";
 const ToyDetails = () => {
+     //adding dynamic title
+  useTitle("Toy Details")
     const singleToy = useLoaderData()
     const { photoUrl, toyName, seller, sellerEmail, price, rating, quantity, description } = singleToy;
     console.log(singleToy)

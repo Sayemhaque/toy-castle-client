@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react"
+import AOS from "aos";
+import 'aos/dist/aos.css'
 const Gallery = () => {
     const [photos, setPhotos] = useState([])
 
     useEffect(() => {
+        AOS.init({ duration: 1000 })
         const getPhosts = async () => {
             const res = await fetch("http://localhost:5000/gallery");
             const data = await res.json()
@@ -19,7 +22,7 @@ const Gallery = () => {
                     {photos.map((photo) => {
                         return <>
                             <div className="overflow-hidden">
-                                <img className="border-8 border-purple-600 transition-transform duration-500 ease-in-out hover:scale-125" src={photo.imgurl} alt="" />
+                                <img data-aos="fade-right" className="border-8 border-purple-600 transition-transform duration-500 ease-in-out hover:scale-125" src={photo.imgurl} alt="" />
                             </div>
                         </>
                     })}

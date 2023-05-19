@@ -1,8 +1,11 @@
 import AllToysTable from "../Table/AllToysTable";
 import { useLoaderData } from "react-router-dom"
 import { useState } from "react"
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
+  //adding dynamic title
+  useTitle("All Toys")
   const allToys = useLoaderData()
   const [toys, setToys] = useState(allToys)
   const [searchText, setSearchText] = useState(null)

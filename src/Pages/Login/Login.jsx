@@ -2,8 +2,11 @@ import { Link,useNavigate,useLocation } from "react-router-dom";
 import {FaGoogle} from "react-icons/fa"
 import { useContext, useState } from "react";
 import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
+     //adding dynamic title
+  useTitle("Log In")
     const navigate = useNavigate()
     const [error , setError] = useState("")
     const location = useLocation()

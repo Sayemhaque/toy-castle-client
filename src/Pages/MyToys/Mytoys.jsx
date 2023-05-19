@@ -1,8 +1,11 @@
 import MyToysTable from "../Table/MyToysTable";
 import {useContext,useEffect,useState} from 'react'
 import {FirebaseAuthContext} from "../../Provider/FirebaseAuthProvider"
+import useTitle from "../../hooks/useTitle";
 
 const Mytoys = () => {
+   //adding dynamic title
+   useTitle("My Toys")
   const {user} = useContext(FirebaseAuthContext)
   const [toys,setToys] = useState([])
     useEffect(() => {

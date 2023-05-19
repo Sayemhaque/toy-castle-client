@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
 import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
+     //adding dynamic title
+  useTitle("Register")
     const [error , setError] = useState("")
     const navigate = useNavigate()
     const {createUserFirebase,updateProfileFirbase,logOut} = useContext(FirebaseAuthContext)

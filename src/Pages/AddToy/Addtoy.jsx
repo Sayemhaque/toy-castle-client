@@ -3,8 +3,11 @@ import { useContext } from "react";
 import {  toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import Toasts from "../../components/Toast/Toasts";
+import useTitle from "../../hooks/useTitle";
 const Addtoy = () => {
     const {user} = useContext(FirebaseAuthContext)
+    //adding dynamic title
+    useTitle("Add Toy")
     const handleRegister = (event) => {
         event.preventDefault()
         const form = event.target;

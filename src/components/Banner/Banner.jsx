@@ -1,10 +1,17 @@
 import BanneImage from "../../assets/istockphoto-183327961-170667a-removebg-preview.png"
+import  AOS  from "aos";
+import 'aos/dist/aos.css'
+import {useEffect} from "react";
+
 const Banner = () => {
-    return (
+    useEffect(() => {
+        AOS.init()
+    } , [])
+    return ( 
         <div className=" bg-slate-300">
             <div className="md:max-w-6xl mx-auto py-12 px-5">
             <div className="md:flex items-center min-h-[70vh] gap-5">
-            <div className="md:w-1/2">
+            <div className="md:w-1/2" data-aos="zoom-in">
                <h1 className="text-6xl font-bold font-serif">Welcome to 
                 <span className="text-purple-500">Toys castle</span>
                </h1>
