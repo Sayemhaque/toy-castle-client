@@ -25,7 +25,7 @@ const Gallery = () => {
                 {photos.map((photo) => {
                     return <>
                         <div className="overflow-hidden">
-                            <img key={photo._id} data-aos="fade-right" className="border-8 border-purple-600 transition-transform duration-500 ease-in-out hover:scale-125" src={photo.imgurl} alt="" />
+                            <img key={photo._id} data-aos="fade-right" className="rounded-xl" src={photo.imgurl} alt="" />
                         </div>
                     </>
                 })}

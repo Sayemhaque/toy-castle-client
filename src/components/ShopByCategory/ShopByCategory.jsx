@@ -37,7 +37,7 @@ const ShopByCategory = () => {
 
                         <button className={`${tabname === "indoor" ? "px-3 py-2 font-bold rounded-md bg-purple-500 text-white " : "px-3 py-2 bg-black font-bold rounded-md text-white"}`} onClick={() => handeTabName("indoor")}>Indoor Sports</button>
 
-                        <button className={`${tabname === "water" ? "px-3 py-2 font-bold rounded-md bg-purple-500 text-white " : "px-3 py-2 bg-black  font-bold rounded-md text-white"}`} onClick={() => handeTabName("water")}>Indoor Sports</button>
+                        <button className={`${tabname === "water" ? "px-3 py-2 font-bold rounded-md bg-purple-500 text-white " : "px-3 py-2 bg-black  font-bold rounded-md text-white"}`} onClick={() => handeTabName("water")}>Water Sports</button>
                     </TabList>
                     <TabPanel >
                         <div className="grid grid-cols-1 md:grid-cols-2  gap-5 py-12 px-5">

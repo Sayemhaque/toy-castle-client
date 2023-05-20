@@ -12,9 +12,8 @@ const ToyCard = ({toy}) => {
     const handleRedirect = () => {
        if(!user){
          notify()
-         navigate(`/toydetail/${_id}`)
-
        }
+       navigate(`/toydetail/${_id}`)
     }
     const  notify = () => {
         toast.warning('You have to log in first to view details', {

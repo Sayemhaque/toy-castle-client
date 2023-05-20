@@ -7,20 +7,25 @@ const AllToys = () => {
   useTitle("All Toys")
   const [toys, setToys] = useState([])
   const [searchText, setSearchText] = useState(null)
+  const [loading,setLoading] = useState(false)
 
   useEffect(() => {
     const getData = async () =>{
+      setLoading(true)
       const res = await fetch("https://railway-server-production-a1a3.up.railway.app/alltoys")
       const data = await res.json()
       setToys(data)
+      setLoading(false)
 
     }
     getData()
   } ,[])
   const handleSearch = async () => {
+    setLoading(true)
     const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/search/${searchText}`)
     const data = await res.json()
     setToys(data)
+    setLoading(false)
   }
   return (
     <div className="px-5 md:px-16">
@@ -28,6 +33,7 @@ const AllToys = () => {
         <input type="text" className="py-3 w-8/12 md:w-5/12 px-4 mr-5 border border-gray-400 rounded-lg" onChange={(e) => setSearchText(e.target.value)} placeholder="search" />
         <button onClick={handleSearch} className="px-4 py-3 bg-purple-500 text-white font-bold rounded-lg">search</button>
       </div>
+      {loading ?  <p className="text-center text-xl  mt-5 font-bold font-serif">Loading...</p> :
       <div className="overflow-x-auto w-full py-12">
         <table className="table w-full">
           {/* head */}
@@ -45,7 +51,7 @@ const AllToys = () => {
             {toys.map(toy => <AllToysTable key={toy._id} toy={toy} />)}
           </tbody>
         </table>
-      </div>
+      </div>}
     </div>
 
 
