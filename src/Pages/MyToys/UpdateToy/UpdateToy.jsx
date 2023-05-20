@@ -26,7 +26,7 @@ const UpdateToy = () => {
 
     const updateToy = async (info) => {
         try {
-           const res = await fetch(`https://toy-castle.vercel.app/update/${_id}`, {
+           const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/update/${_id}`, {
               method: "PUT",
               headers: { "content-Type": "application/json" },
               body: JSON.stringify(info)

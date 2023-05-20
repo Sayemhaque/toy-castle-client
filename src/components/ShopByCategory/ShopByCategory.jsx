@@ -11,7 +11,7 @@ const ShopByCategory = () => {
 
     useEffect(() => {
         const getToys = async () => {
-            const res = await fetch(`https://toy-castle.vercel.app/toys/category/${tabname}`)
+            const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/toys/category/${tabname}`)
             const data = await res.json()
             setToys(data)
             console.log(tabname)

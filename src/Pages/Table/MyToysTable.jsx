@@ -8,7 +8,7 @@ const MyToysTable = ({toy}) => {
    const handleDelete = async (id) => {
        const proceed = confirm("Do you want ot delete thsi?")
       if(proceed){
-          const res = await fetch(`https://toy-castle.vercel.app/toy/delete/${id}`,{
+          const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/toy/delete/${id}`,{
           method:"DELETE",
        })
        const data = await res.json()

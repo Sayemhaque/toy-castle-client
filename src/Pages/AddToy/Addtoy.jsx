@@ -28,7 +28,7 @@ const Addtoy = () => {
     
 const addToy = async (toydata) => {
     try {
-       const res = await fetch("https://toy-castle.vercel.app/toys", {
+       const res = await fetch("https://railway-server-production-a1a3.up.railway.app/toys", {
           method: "POST",
           headers: { "content-Type": "application/json" },
           body: JSON.stringify(toydata)

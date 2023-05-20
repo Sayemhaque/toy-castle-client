@@ -5,7 +5,7 @@ const ExclusiveToys = () => {
 
   useEffect(() => {
       const getPhosts = async () => {
-          const res = await fetch("https://toy-castle.vercel.app/exclusive");
+          const res = await fetch("https://railway-server-production-a1a3.up.railway.app/exclusive");
           const data = await res.json()
           setPhotos(data)
       }

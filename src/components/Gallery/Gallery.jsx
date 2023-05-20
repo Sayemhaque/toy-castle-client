@@ -7,7 +7,7 @@ const Gallery = () => {
     useEffect(() => {
         AOS.init({ duration: 1000 })
         const getPhosts = async () => {
-            const res = await fetch("https://toy-castle.vercel.app/gallery");
+            const res = await fetch("https://railway-server-production-a1a3.up.railway.app/gallery");
             const data = await res.json()
             setPhotos(data)
         }
@@ -21,8 +21,8 @@ const Gallery = () => {
                 {photos.length === 0 ? <p className="font-serif font-bold text-md md:text-4xl">Loading....</p> : <>
                     {photos.map((photo) => {
                         return <>
-                            <div key={photo._id} className="overflow-hidden">
-                                <img data-aos="fade-right" className="border-8 border-purple-600 transition-transform duration-500 ease-in-out hover:scale-125" src={photo.imgurl} alt="" />
+                            <div  className="overflow-hidden">
+                                <img key={photo._id} data-aos="fade-right" className="border-8 border-purple-600 transition-transform duration-500 ease-in-out hover:scale-125" src={photo.imgurl} alt="" />
                             </div>
                         </>
                     })}

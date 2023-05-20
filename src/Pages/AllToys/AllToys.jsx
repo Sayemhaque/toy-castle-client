@@ -10,7 +10,7 @@ const AllToys = () => {
 
   useEffect(() => {
     const getData = async () =>{
-      const res = await fetch("https://toy-castle.vercel.app/alltoys")
+      const res = await fetch("https://railway-server-production-a1a3.up.railway.app/alltoys")
       const data = await res.json()
       setToys(data)
 
@@ -18,7 +18,7 @@ const AllToys = () => {
     getData()
   } ,[])
   const handleSearch = async () => {
-    const res = await fetch(`https://toy-castle.vercel.app/search/${searchText}`)
+    const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/search/${searchText}`)
     const data = await res.json()
     setToys(data)
   }

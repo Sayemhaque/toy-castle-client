@@ -10,7 +10,7 @@ const Mytoys = () => {
   const [toys,setToys] = useState([])
     useEffect(() => {
       const getData = async () => {
-        const res = await fetch(`https://toy-castle.vercel.app/mytoys/${user?.email}`);
+        const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/mytoys/${user?.email}`);
         const data = await res.json()
         setToys(data)
       }
@@ -19,7 +19,7 @@ const Mytoys = () => {
 
      const handleSorting = async (price) => {
       console.log(price)
-          const res = await fetch(`https://toy-castle.vercel.app/${price}/${user?.email}`)
+          const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/${price}/${user?.email}`)
           const data = await res.json();
           setToys(data)
      }
