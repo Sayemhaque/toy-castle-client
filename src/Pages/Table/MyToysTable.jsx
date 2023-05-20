@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {  toast } from 'react-toastify';
 import Toasts from '../../components/Toast/Toasts';
 
+
 const MyToysTable = ({toy}) => {
     const {_id,sellerEmail,toyName,subCategory,price,quantity} = toy;
    const handleDelete = async (id) => {

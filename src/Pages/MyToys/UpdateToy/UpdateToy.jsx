@@ -3,9 +3,11 @@ import {  toast } from 'react-toastify';
 import {useLoaderData} from "react-router-dom"
 import Toasts from '../../../components/Toast/Toasts';
 import useTitle from '../../../hooks/useTitle';
+import { useState } from 'react';
 const UpdateToy = () => {
      //adding dynamic title
   useTitle("update Toys")
+  const [loading,setLoadng] = useState(false)
     const toy = useLoaderData()
     const {_id,photoUrl,toyName,price,rating,quantity,description} = toy;
     const handleUpate = (event,) => {
@@ -26,6 +28,7 @@ const UpdateToy = () => {
 
     const updateToy = async (info) => {
         try {
+            setLoadng(true)
            const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/update/${_id}`, {
               method: "PUT",
               headers: { "content-Type": "application/json" },
@@ -34,6 +37,7 @@ const UpdateToy = () => {
            const data = await res.json()
            console.log(data)
            if(data.modifiedCount > 0){
+            setLoadng(false)
             notify()
            }
         } catch (error) {
@@ -98,8 +102,8 @@ const UpdateToy = () => {
                         </div>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="bg-purple-600 w-full py-3 rounded-lg text-white font-bold">Update</button>
-                        <Toasts/>
+                    <button disabled={loading} className="bg-purple-600 w-full py-3 rounded-lg text-white font-bold disabled:bg-opacity-40">{loading ? "updaing..." : "Update"}</button>
+                    <Toasts/>
                     </div>
                 </form>
             </div>

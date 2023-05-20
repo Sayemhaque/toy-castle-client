@@ -1,11 +1,12 @@
 import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {  toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import Toasts from "../../components/Toast/Toasts";
 import useTitle from "../../hooks/useTitle";
 const Addtoy = () => {
     const {user} = useContext(FirebaseAuthContext)
+    const [loading,setLoadng] = useState(false)
     //adding dynamic title
     useTitle("Add Toy")
     const handleRegister = (event) => {
@@ -28,6 +29,7 @@ const Addtoy = () => {
     
 const addToy = async (toydata) => {
     try {
+        setLoadng(true)
        const res = await fetch("https://railway-server-production-a1a3.up.railway.app/toys", {
           method: "POST",
           headers: { "content-Type": "application/json" },
@@ -36,6 +38,7 @@ const addToy = async (toydata) => {
        const data = await res.json()
        console.log(data)
        if(data.insertedId){
+        setLoadng(false)
         notify()
        }
     } catch (error) {
@@ -125,7 +128,7 @@ const addToy = async (toydata) => {
                     <div>
                   </div>
                     <div className="form-control mt-6">
-                        <button className="bg-purple-600 w-full py-3 rounded-lg text-white font-bold">Add</button>
+                    <button disabled={loading} className="bg-purple-600 w-full py-3 rounded-lg text-white font-bold disabled:bg-opacity-40">{loading ? "Adding" : "Add"}</button>
                         <Toasts />
                     </div>
                 </form>

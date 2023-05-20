@@ -8,7 +8,7 @@ const Banner = () => {
         AOS.init()
     } , [])
     return ( 
-        <div className=" bg-slate-300">
+        <div className=" bg-white">
             <div className="md:max-w-6xl mx-auto py-12 px-5">
             <div className="md:flex items-center min-h-[70vh] gap-5">
             <div className="md:w-1/2" data-aos="zoom-in">
