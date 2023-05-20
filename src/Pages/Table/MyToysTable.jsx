@@ -44,7 +44,7 @@ const MyToysTable = ({toy}) => {
           <div className="flex flex-col gap-4">
           <Link to={`/update/${_id}`}>  <button className="px-2 btn-block border bg-border font-bold" htmlFor="my-modal-5">Edit</button></Link>
           <div>
-          <button onClick={() => handleDelete(_id)} className="px-2 bg-black text-white font-bold">Delete</button>
+          <button onClick={() => handleDelete(_id)} className="px-2 bg-black btn-block text-white font-bold">Delete</button>
           <Toasts/>
           </div>
           </div>

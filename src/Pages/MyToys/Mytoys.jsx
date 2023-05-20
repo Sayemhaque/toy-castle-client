@@ -28,8 +28,8 @@ const Mytoys = () => {
       <div className="overflow-x-auto w-full py-12 px-5">
           <div className="flex items-center gap-5 mb-2">
             <p className="font-bold text-md">Filter by price:</p>
-            <button onClick={() => handleSorting("lowest")} className="px-2 py-1 bg-purple-500 text-white font-bold">Lowest</button>
-            <button onClick={() => handleSorting("highest")} className="px-2 py-1 bg-purple-500 text-white font-bold">Highest</button>
+            <button onClick={() => handleSorting("lowest")} className="px-2 py-1 bg-black text-white font-bold">Lowest</button>
+            <button onClick={() => handleSorting("highest")} className="px-2 py-1 bg-black text-white font-bold">Highest</button>
           </div>
         <table className="table w-full">
           {/* head */}
