@@ -3,6 +3,7 @@ import {FaGoogle} from "react-icons/fa"
 import { useContext, useState } from "react";
 import { FirebaseAuthContext } from "../../Provider/FirebaseAuthProvider";
 import useTitle from "../../hooks/useTitle";
+import Toasts from "../../components/Toast/Toasts";
 
 const Login = () => {
      //adding dynamic title
@@ -63,6 +64,7 @@ const Login = () => {
                         </form>
                         <span className="py-3 text-center">Or login with</span>
                         <button onClick={handleLogInWithGoogle} className="flex bg-black text-white py-3 rounded-lg btn-block justify-center gap-6 items-center"><FaGoogle/> Login with Google</button>
+                        <Toasts/>
                     </div>
                 </div>
             </div>
