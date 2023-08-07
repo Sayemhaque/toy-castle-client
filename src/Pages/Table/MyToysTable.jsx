@@ -9,7 +9,7 @@ const MyToysTable = ({toy}) => {
    const handleDelete = async (id) => {
        const proceed = confirm("Do you want ot delete thsi?")
       if(proceed){
-          const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/toy/delete/${id}`,{
+          const res = await fetch(`https://toy-castle.onrender.com/toy/delete/${id}`,{
           method:"DELETE",
        })
        const data = await res.json()
@@ -42,7 +42,8 @@ const MyToysTable = ({toy}) => {
         <td className="text-center">{quantity}</td>
         <th>
           <div className="flex flex-col gap-4">
-          <Link to={`/update/${_id}`}>  <button className="px-2 btn-block border bg-border font-bold" htmlFor="my-modal-5">Edit</button></Link>
+          <Link to={`/update/${_id}`}> 
+           <button className="px-2 btn-block border bg-border font-bold" htmlFor="my-modal-5">Edit</button></Link>
           <div>
           <button onClick={() => handleDelete(_id)} className="px-2 bg-black btn-block text-white font-bold">Delete</button>
           <Toasts/>

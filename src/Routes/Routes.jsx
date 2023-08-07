@@ -49,12 +49,12 @@ const router = createBrowserRouter([
         { 
           path:"toydetail/:id",
           element:<PrivateRoute><ToyDetails/></PrivateRoute>,
-          loader:({params}) => fetch(`https://railway-server-production-a1a3.up.railway.app/toydetail/${params.id}`)
+          loader:({params}) => fetch(`https://toy-castle.onrender.com/toydetail/${params.id}`)
         },
         { 
           path:"update/:id",
           element:<UpdateToy/>,
-          loader:({params}) => fetch(`https://railway-server-production-a1a3.up.railway.app/toydetail/${params.id}`)
+          loader:({params}) => fetch(`https://toy-castle.onrender.com/toydetail/${params.id}`)
         }
     ]
   }

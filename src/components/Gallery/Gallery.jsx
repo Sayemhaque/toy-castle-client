@@ -9,7 +9,7 @@ const Gallery = () => {
         AOS.init({ duration: 1000 })
         const getPhosts = async () => {
             setLoading(true)
-            const res = await fetch("https://railway-server-production-a1a3.up.railway.app/gallery");
+            const res = await fetch("https://toy-castle.onrender.com/gallery");
             const data = await res.json()
             setPhotos(data)
             setLoading(false)

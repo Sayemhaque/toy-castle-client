@@ -10,7 +10,7 @@ const ExclusiveToys = () => {
     AOS.init()
       const getPhosts = async () => {
         setLoading(true)
-          const res = await fetch("https://railway-server-production-a1a3.up.railway.app/exclusive");
+          const res = await fetch("https://toy-castle.onrender.com/exclusive");
           const data = await res.json()
           setPhotos(data)
           setLoading(false)

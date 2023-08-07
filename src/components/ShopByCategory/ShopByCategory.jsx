@@ -13,7 +13,7 @@ const ShopByCategory = () => {
     useEffect(() => {
         const getToys = async () => {
             setLoading(true)
-            const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/toys/category/${tabname}`)
+            const res = await fetch(`https://toy-castle.onrender.com/toys/category/${tabname}`)
             const data = await res.json()
             setToys(data)
             setLoading(false)

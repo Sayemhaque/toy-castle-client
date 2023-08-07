@@ -12,7 +12,7 @@ const AllToys = () => {
   useEffect(() => {
     const getData = async () =>{
       setLoading(true)
-      const res = await fetch("https://railway-server-production-a1a3.up.railway.app/alltoys")
+      const res = await fetch("https://toy-castle.onrender.com/alltoys")
       const data = await res.json()
       setToys(data)
       setLoading(false)
@@ -22,7 +22,7 @@ const AllToys = () => {
   } ,[])
   const handleSearch = async () => {
     setLoading(true)
-    const res = await fetch(`https://railway-server-production-a1a3.up.railway.app/search/${searchText}`)
+    const res = await fetch(`https://toy-castle.onrender.com/search/${searchText}`)
     const data = await res.json()
     setToys(data)
     setLoading(false)
