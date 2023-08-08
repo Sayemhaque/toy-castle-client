@@ -49,12 +49,12 @@ const router = createBrowserRouter([
         { 
           path:"toydetail/:id",
           element:<PrivateRoute><ToyDetails/></PrivateRoute>,
-          loader:({params}) => fetch(`https://toy-castle.onrender.com/toydetail/${params.id}`)
+          loader:({params}) => fetch(`https://toy-castle-server-eight.vercel.app/toydetail/${params.id}`)
         },
         { 
           path:"update/:id",
           element:<UpdateToy/>,
-          loader:({params}) => fetch(`https://toy-castle.onrender.com/toydetail/${params.id}`)
+          loader:({params}) => fetch(`https://toy-castle-server-eight.vercel.app/toydetail/${params.id}`)
         }
     ]
   }

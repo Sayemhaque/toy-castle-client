@@ -9,7 +9,7 @@ const Gallery = () => {
         AOS.init({ duration: 1000 })
         const getPhosts = async () => {
             setLoading(true)
-            const res = await fetch("https://toy-castle.onrender.com/gallery");
+            const res = await fetch("https://toy-castle-server-eight.vercel.app/gallery");
             const data = await res.json()
             setPhotos(data)
             setLoading(false)
