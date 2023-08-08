@@ -12,7 +12,7 @@ const AllToys = () => {
   useEffect(() => {
     const getData = async () =>{
       setLoading(true)
-      const res = await fetch("https://toy-castle-server-eight.vercel.app/alltoys")
+      const res = await fetch("https://toy-castle-server-omega.vercel.app/alltoys")
       const data = await res.json()
       setToys(data)
       setLoading(false)
@@ -22,7 +22,7 @@ const AllToys = () => {
   } ,[])
   const handleSearch = async () => {
     setLoading(true)
-    const res = await fetch(`https://toy-castle-server-eight.vercel.app/search/${searchText}`)
+    const res = await fetch(`https://toy-castle-server-omega.vercel.app/search/${searchText}`)
     const data = await res.json()
     setToys(data)
     setLoading(false)

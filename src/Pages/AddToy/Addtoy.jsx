@@ -30,7 +30,7 @@ const Addtoy = () => {
 const addToy = async (toydata) => {
     try {
         setLoadng(true)
-       const res = await fetch("https://toy-castle-server-eight.vercel.app/toys", {
+       const res = await fetch("https://toy-castle-server-omega.vercel.app/toys", {
           method: "POST",
           headers: { "content-Type": "application/json" },
           body: JSON.stringify(toydata)

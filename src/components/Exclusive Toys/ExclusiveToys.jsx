@@ -10,7 +10,7 @@ const ExclusiveToys = () => {
     AOS.init()
       const getPhosts = async () => {
         setLoading(true)
-          const res = await fetch("https://toy-castle-server-eight.vercel.app/exclusive");
+          const res = await fetch("https://toy-castle-server-omega.vercel.app/exclusive");
           const data = await res.json()
           setPhotos(data)
           setLoading(false)

@@ -10,7 +10,7 @@ const Mytoys = () => {
   const [toys, setToys] = useState([])
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`https://toy-castle-server-eight.vercel.app/mytoys/${user?.email}`);
+      const res = await fetch(`https://toy-castle-server-omega.vercel.app/mytoys/${user?.email}`);
       const data = await res.json()
       setToys(data)
     }
@@ -18,7 +18,7 @@ const Mytoys = () => {
   }, [user.email])
 
   const handleSorting = async (price) => {
-    const res = await fetch(`https://toy-castle-server-eight.vercel.app/${price}/${user?.email}`)
+    const res = await fetch(`https://toy-castle-server-omega.vercel.app/${price}/${user?.email}`)
     const data = await res.json();
     setToys(data)
   }

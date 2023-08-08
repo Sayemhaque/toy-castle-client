@@ -13,7 +13,8 @@ const ShopByCategory = () => {
     useEffect(() => {
         const getToys = async () => {
             setLoading(true)
-            const res = await fetch(`https://toy-castle-server-eight.vercel.app/toys/category/${tabname}`)
+            const res = await 
+            fetch(`https://toy-castle-server-omega.vercel.app/toys/category/${tabname}`)
             const data = await res.json()
             setToys(data)
             setLoading(false)

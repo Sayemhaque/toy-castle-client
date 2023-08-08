@@ -29,7 +29,7 @@ const UpdateToy = () => {
     const updateToy = async (info) => {
         try {
             setLoadng(true)
-           const res = await fetch(`https://toy-castle-server-eight.vercel.app/update/${_id}`, {
+           const res = await fetch(`https://toy-castle-server-omega.vercel.app/update/${_id}`, {
               method: "PUT",
               headers: { "content-Type": "application/json" },
               body: JSON.stringify(info)
